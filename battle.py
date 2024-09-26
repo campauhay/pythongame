@@ -1,7 +1,7 @@
 import json
 import random
 import threading
-from world import display_actionmenu
+
 #da comment
 def display_battlemenu():
     print("=== Time For Battle! ===")
@@ -38,7 +38,6 @@ def battle(attacks):  # Accept attacks as an argument
             # Check if the enemy has been defeated
             if enemy_health <= 0:
                 print(f"You defeated {enemy_name}!")
-                elif display_actionmenu()  # Exit the loop if the enemy is defeated
 
         elif action_choice == '3':
             print("Checking inventory...")
