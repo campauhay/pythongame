@@ -12,7 +12,7 @@ def display_battlemenu():
     print("5. Run")
     print("============================")
 
-def battle(attacks):  # Accept attacks as an argument
+def create_enemy():
     with open('enemy.json', 'r') as json_file:  # Getting the enemy file
         enemy_list = json.load(json_file)
 
@@ -21,6 +21,11 @@ def battle(attacks):  # Accept attacks as an argument
     enemy_name = enemy['name']
     enemy_health = enemy['health']
     enemy_attack = enemy['attack']
+
+    return enemy_name, enemy_health, enemy_attack
+
+def battle(attacks):  # Accept attacks as an argument
+    enemy_name, enemy_health, enemy_attack = create_enemy() #getting the damn variable for the stupid function from the function
 
     while enemy_health > 0:  # Battle menu loop
         display_battlemenu()
@@ -38,6 +43,7 @@ def battle(attacks):  # Accept attacks as an argument
             # Check if the enemy has been defeated
             if enemy_health <= 0:
                 print(f"You defeated {enemy_name}!")
+                next_state()
 
         elif action_choice == '3':
             print("Checking inventory...")
