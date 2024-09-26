@@ -1,0 +1,40 @@
+[
+    {
+        "pos": "1",
+        "name": "warrior", 
+        "health": 100, 
+        "mana": 20,
+        "attacks":[
+            {"name": "thrust", "number": 5},
+            {"name": "slash", "number": 15},
+            {"name": "cleave", "number": 25}
+        ]
+    },
+
+    {
+        "pos": "2",
+        "name": "mage", 
+        "health": 50, 
+        "mana": 100,
+        "attacks": 
+        [
+            {"name": "fireball", "number": 15},
+            {"name": "spark", "number": 20},
+            {"name": "recover", "number": 0}
+        ]
+    },
+
+    {
+        "pos": "3",
+        "name": "rogue", 
+        "health": 75, 
+        "mana": 50,
+        "attacks": [
+            {"name": "thrust", "number": 5},
+            {"name": "backstab", "number": 15},
+            {"name": "flee", "number": 0},
+            {"name": "poison", "number": 20}
+
+        ]
+    }
+]

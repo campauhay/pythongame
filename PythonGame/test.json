@@ -1,0 +1,21 @@
+{
+  "pos": "2",
+  "name": "cam",
+  "class": "mage",
+  "health": 50,
+  "mana": 100,
+  "attacks": [
+    {
+      "name": "fireball",
+      "number": 15
+    },
+    {
+      "name": "spark",
+      "number": 20
+    },
+    {
+      "name": "recover",
+      "number": 0
+    }
+  ]
+}
