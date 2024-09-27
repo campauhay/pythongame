@@ -12,10 +12,10 @@ def display_actionmenu():
     print("5. Exit")
     print("============================")
 
-def start_level(character_file):
+def level1(character_file):
     with open(character_file, 'r') as char_file:  # Getting attack data from save
         character_data = json.load(char_file)  # Correct the variable name to character_data
         attacks = character_data['attacks']  # Use character_data instead of character_file
 
     print("Welcome to the land of Camelot. There are many adventures to be had, but for now let's teach you how to battle!")
-    battle(attacks)
+    battle(attacks, character_file)

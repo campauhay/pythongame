@@ -1,6 +1,7 @@
 import json
 import random
 import threading
+from game_state import next_state
 
 #da comment
 def display_battlemenu():
@@ -24,7 +25,7 @@ def create_enemy():
 
     return enemy_name, enemy_health, enemy_attack
 
-def battle(attacks):  # Accept attacks as an argument
+def battle(attacks, character_file):  # Accept attacks as an argument
     enemy_name, enemy_health, enemy_attack = create_enemy() #getting the damn variable for the stupid function from the function
 
     while enemy_health > 0:  # Battle menu loop
@@ -43,7 +44,7 @@ def battle(attacks):  # Accept attacks as an argument
             # Check if the enemy has been defeated
             if enemy_health <= 0:
                 print(f"You defeated {enemy_name}!")
-                next_state()
+                next_state(character_file)
 
         elif action_choice == '3':
             print("Checking inventory...")
@@ -78,7 +79,7 @@ def attack_state(attacks, enemy_health):
     if input_thread.is_alive():
         print("Time is up! You didn't choose an attack.")
     else:
-        # Extract the available attack names and their corresponding damage values
+        # Extract the available attack names and their damage values
         attack_dict = {attack['name'].lower(): attack['number'] for attack in attacks}
 
         # Check if the input is a valid attack

@@ -1,6 +1,6 @@
 import os
 import json
-from world import start_level
+from world import level1
 
 
 def display_mainmenu():
@@ -13,7 +13,24 @@ def display_mainmenu():
 
 def start_game(character_file):
     print(f"Starting game with {character_file} loaded.")
-    start_level(character_file)
+    
+    # Load the character file and read state_number
+    with open(character_file, 'r') as char_file:
+        character_data = json.load(char_file)
+        state_number = character_data.get('state_number', 0)  # Default to 0 if not found
+    
+    if state_number == 0:
+        print("Welcome to the starting tutorial.")
+        level1(character_file)
+    elif state_number == 1:
+        print("You have completed the tutorial. Moving to the next area.")
+        level2(character_file)
+    elif state_number == 2:
+        print("Starting your adventure in the village.")
+        level3(character_file)
+    else:
+        print("No further levels implemented yet.")
+
 
 def create_character():
     filename = input("Enter the name of the save:")
@@ -46,7 +63,8 @@ def character_creation(filename):
             "class": selected_class['name'],
             "health": selected_class['health'],
             "mana": selected_class['mana'],
-            "attacks": selected_class['attacks']
+            "attacks": selected_class['attacks'],
+            "state_number": 0
         }
 
     save_character_to_file(filename, character)
